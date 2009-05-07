@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 
+  # Validations
   validates_presence_of :title, :description, :image_url
   validates_length_of :title, :minimum => 10
   validates_numericality_of :price
@@ -9,6 +10,11 @@ class Product < ActiveRecord::Base
                       :with => %r{\.(gif|jpg|png)$}i,
                       :message => 'must be a URL for GIF, JPG or PNG image.'
 
+
+  # Class methods
+  def self.find_products_for_sale
+    find(:all, :order => "title")
+  end
 
   protected
 
