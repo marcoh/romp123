@@ -2,13 +2,17 @@
 
 <% for product in @products -%>
   <div class="entry">
-    <%= link_to image_tag(product.image_url),
-      {:action  => :add_to_cart, :id => product }, :method => :post %>
+    <%= link_to_remote(image_tag(product.image_url),
+      :url => { :action => :add_to_cart, :id => product }) %>
+
     <h3><%=h product.title %></h3>
     <%= product.description %>
     <div class="price-line">
       <span class="price"><%= number_to_currency(product.price) %></span>
-      <%= button_to "Add to Cart", {:action  => :add_to_cart, :id => product } %>
+
+      <% form_remote_tag :url => {:action  => :add_to_cart, :id => product } do %>
+        <%= submit_tag "Add to Cart" %>
+      <% end %>
     </div>
   </div>
 <% end %>

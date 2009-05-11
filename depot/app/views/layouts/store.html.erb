@@ -3,9 +3,8 @@
 <html>
 <head>
   <title>Pragprog Books Online Store</title>
-
   <%= stylesheet_link_tag "depot", :media => "all" %>
-
+  <%= javascript_include_tag :defaults %>
 </head>
 <body id="store">
   <div id="banner">
@@ -15,7 +14,9 @@
   <div id="columns">
     <div id="side" >
       <div id="cart">
-        <%= render(:partial => "cart", :object => @cart) %>
+        <% hidden_div_if(@cart.items.empty?, :di => "cart") do %>
+          <%= render(:partial => "cart", :object => @cart) %>
+        <% end %>
       </div>
             
       <a href="http://www....">Home</a><br />

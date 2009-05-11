@@ -7,8 +7,11 @@ class StoreController < ApplicationController
   def add_to_cart
     product = Product.find(params[:id])
     @cart = find_cart
-    @cart.add_product(product)
-    redirect_to_index
+    @current_item = @cart.add_product(product)
+    respond_to do |format|
+      format.js if request.xhr?
+      format.html {redirect_to_index}
+    end
   rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product #{params[:id]}")
     redirect_to_index("Invalid product")
@@ -16,7 +19,7 @@ class StoreController < ApplicationController
 
   def empty_cart
     session[:cart] = nil
-    redirect_to_index("Your cart is currently empty")
+    redirect_to_index
   end
 
 # PRIVATE *************************
