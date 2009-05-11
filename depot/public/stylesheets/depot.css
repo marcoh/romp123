@@ -221,3 +221,9 @@ h1 {
   border-bottom: 1px dotted #595;
   margin-bottom: 10px;
 }
+
+.product_picture {
+  width: 75px;
+  float: left;
+  text-decoration: none;
+}

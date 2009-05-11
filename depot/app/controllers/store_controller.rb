@@ -19,7 +19,7 @@ class StoreController < ApplicationController
 
   def empty_cart
     session[:cart] = nil
-    redirect_to_index
+    redirect_to_index unless request.xhr?
   end
 
 # PRIVATE *************************

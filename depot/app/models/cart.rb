@@ -21,7 +21,6 @@ class Cart
   end
 
   def total_items
-    @items.sum{ |item| item.quantity }
+    @items.sum{ |item| item.quantity}
   end
-
 end
