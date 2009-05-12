@@ -6622,3 +6622,949 @@ Rendering store/add_to_cart
 Rendered store/_cart_item (8.3ms)
 Rendered store/_cart (12.0ms)
 Completed in 56ms (View: 16, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+  [4;36;1mSQL (3.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090504130520)
+Migrating to AddPriceToProduct (20090504134753)
+Migrating to AddTestData (20090507084702)
+Migrating to CreateSessions (20090507194107)
+Migrating to CreateOrders (20090512123419)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090512123419')[0m
+Migrating to CreateLineItems (20090512123526)
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "order_id" integer NOT NULL, "quantity" integer NOT NULL, "total_price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090512123526')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("line_items")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("orders")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("products")[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:34:17) [GET]
+  [4;36;1mProduct Load (2.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (8.6ms)
+Rendered store/_cart (14.3ms)
+Completed in 166ms (View: 56, DB: 4) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:34:22) [GET]
+  [4;35;1mProduct Load (18.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.9ms)
+Rendered store/_cart (5.6ms)
+Completed in 166ms (View: 50, DB: 19) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:34:25) [GET]
+  [4;36;1mProduct Load (2.3ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (2.2ms)
+Rendered store/_cart (8.4ms)
+Completed in 168ms (View: 75, DB: 21) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:34:43) [GET]
+  [4;35;1mProduct Load (2.2ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.2ms)
+Rendered store/_cart (114.9ms)
+Completed in 260ms (View: 177, DB: 6) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-12 15:34:47) [POST]
+  Parameters: {"commit"=>"Empty cart", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering store/empty_cart
+Completed in 39ms (View: 2, DB: 1) | 200 OK [http://localhost/store/empty_cart]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 15:34:49) [POST]
+  Parameters: {"authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow=", "id"=>"3"}
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (11.7ms)
+Rendered store/_cart (16.8ms)
+Completed in 64ms (View: 21, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 15:34:52) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow=", "id"=>"3"}
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (-0.1ms)
+Rendered store/_cart (4.4ms)
+Completed in 52ms (View: 9, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:37:16) [GET]
+  [4;36;1mProduct Load (5.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.2ms)
+Rendered store/_cart (8.7ms)
+Completed in 207ms (View: 61, DB: 6) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:20) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (14.5ms)
+Rendered store/_cart (19.3ms)
+Completed in 93ms (View: 40, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:22) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.8ms)
+Rendered store/_cart (17.7ms)
+Completed in 88ms (View: 34, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:23) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.8ms)
+Rendered store/_cart (22.1ms)
+Completed in 94ms (View: 33, DB: 2) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:23) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.4ms)
+Rendered store/_cart (127.5ms)
+Completed in 203ms (View: 142, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:23) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (19.6ms)
+Rendered store/_cart (25.1ms)
+Completed in 86ms (View: 41, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:23) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (51.3ms)
+Rendered store/_cart (57.6ms)
+Completed in 142ms (View: 79, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:24) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.6ms)
+Rendered store/_cart (17.1ms)
+Completed in 81ms (View: 33, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:24) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (20.8ms)
+Completed in 96ms (View: 31, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:24) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.2ms)
+Rendered store/_cart (20.0ms)
+Completed in 93ms (View: 37, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:25) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (16.3ms)
+Rendered store/_cart (21.6ms)
+Completed in 97ms (View: 33, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:25) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (18.4ms)
+Rendered store/_cart (22.9ms)
+Completed in 81ms (View: 34, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:25) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (11.1ms)
+Rendered store/_cart (16.6ms)
+Completed in 103ms (View: 29, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:25) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (14.1ms)
+Rendered store/_cart (23.5ms)
+Completed in 207ms (View: 35, DB: 2) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:26) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (15.7ms)
+Rendered store/_cart (20.7ms)
+Completed in 97ms (View: 32, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:26) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.9ms)
+Rendered store/_cart (19.6ms)
+Completed in 87ms (View: 33, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:26) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (43.6ms)
+Rendered store/_cart (50.8ms)
+Completed in 115ms (View: 63, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:27) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (14.8ms)
+Rendered store/_cart (20.3ms)
+Completed in 165ms (View: 36, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:28) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (13.6ms)
+Rendered store/_cart (19.6ms)
+Completed in 112ms (View: 35, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:28) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (21.0ms)
+Rendered store/_cart (33.1ms)
+Completed in 157ms (View: 54, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-12 15:37:29) [POST]
+  Parameters: {"commit"=>"Empty cart", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering store/empty_cart
+Completed in 37ms (View: 2, DB: 1) | 200 OK [http://localhost/store/empty_cart]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 15:37:31) [POST]
+  Parameters: {"authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow=", "id"=>"3"}
+  [4;35;1mProduct Load (0.8ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (13.2ms)
+Rendered store/_cart (18.1ms)
+Completed in 62ms (View: 23, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 15:37:33) [POST]
+  Parameters: {"commit"=>"Checkout", "authenticity_token"=>"C6z5IfnDIoc9ml/QNBj0JE6nkmk1hVxTD/8E8Yd4fow="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.5ms)
+Rendered store/_cart (21.1ms)
+Completed in 168ms (View: 33, DB: 4) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:38:54) [GET]
+  [4;36;1mProduct Load (4.9ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (7.7ms)
+Completed in 185ms (View: 89, DB: 6) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 15:43:58) [GET]
+  [4;36;1mProduct Load (3.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (7.2ms)
+Completed in 177ms (View: 89, DB: 4) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 15:44:02) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (120.4ms)
+Rendered store/_cart (135.7ms)
+Completed in 200ms (View: 150, DB: 3) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:51) [GET]
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (10.6ms)
+Rendered store/_cart (17.2ms)
+Completed in 140ms (View: 72, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:54) [GET]
+  [4;35;1mProduct Load (2.3ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.4ms)
+Rendered store/_cart (14.2ms)
+Completed in 117ms (View: 52, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:55) [GET]
+  [4;36;1mProduct Load (1.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (3.2ms)
+Rendered store/_cart (8.3ms)
+Completed in 212ms (View: 126, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:56) [GET]
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.6ms)
+Rendered store/_cart (9.2ms)
+Completed in 207ms (View: 111, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:56) [GET]
+  [4;36;1mProduct Load (1.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (2.0ms)
+Rendered store/_cart (5.1ms)
+Completed in 93ms (View: 46, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:56) [GET]
+  [4;35;1mProduct Load (1.3ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (5.4ms)
+Completed in 105ms (View: 47, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:56) [GET]
+  [4;36;1mProduct Load (10.3ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.9ms)
+Rendered store/_cart (103.8ms)
+Completed in 207ms (View: 161, DB: 11) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:13:59) [GET]
+  [4;35;1mProduct Load (2.9ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.9ms)
+Rendered store/_cart (6.4ms)
+Completed in 190ms (View: 43, DB: 4) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:15:12) [GET]
+  [4;36;1mProduct Load (2.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (4.3ms)
+Completed in 93ms (View: 43, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:15:14) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (10.8ms)
+Rendered store/_cart (33.3ms)
+Completed in 110ms (View: 66, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:15:16) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (9.8ms)
+Rendered store/_cart (14.5ms)
+Completed in 60ms (View: 18, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:47) [GET]
+  [4;35;1mProduct Load (1.7ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.1ms)
+Rendered store/_cart (7.4ms)
+Completed in 108ms (View: 51, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:49) [GET]
+  [4;36;1mProduct Load (8.9ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (27.1ms)
+Completed in 307ms (View: 179, DB: 24) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:49) [GET]
+  [4;35;1mProduct Load (2.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (7.4ms)
+Completed in 260ms (View: 90, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:50) [GET]
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.3ms)
+Rendered store/_cart (7.4ms)
+Completed in 105ms (View: 48, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:50) [GET]
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (14.6ms)
+Completed in 101ms (View: 55, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:50) [GET]
+  [4;36;1mProduct Load (1.1ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (9.7ms)
+Rendered store/_cart (15.5ms)
+Completed in 186ms (View: 142, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:51) [GET]
+  [4;35;1mProduct Load (2.3ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (2.8ms)
+Rendered store/_cart (6.3ms)
+Completed in 95ms (View: 46, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:51) [GET]
+  [4;36;1mProduct Load (2.3ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.7ms)
+Rendered store/_cart (6.5ms)
+Completed in 102ms (View: 51, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:16:51) [GET]
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (5.0ms)
+Completed in 87ms (View: 41, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:21:54) [GET]
+  [4;36;1mProduct Load (1.8ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (2.2ms)
+Rendered store/_cart (6.6ms)
+Completed in 260ms (View: 180, DB: 30) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-12 16:21:58) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Redirected to http://localhost:3000/store
+Completed in 68ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:21:59) [GET]
+  [4;35;1mProduct Load (2.8ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (4.0ms)
+Completed in 95ms (View: 46, DB: 4) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:22:01) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;36;1mProduct Load (0.7ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (8.8ms)
+Rendered store/_cart (12.6ms)
+Completed in 60ms (View: 17, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 16:22:03) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (22.4ms)
+Rendered store/_cart (25.6ms)
+Completed in 265ms (View: 166, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 16:22:59) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"MH", "name"=>"MH", "pay_type"=>"check", "email"=>"MH"}}
+
+ActionController::UnknownAction (No action responded to save_order. Actions: add_to_cart, checkout, empty_cart, and index):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:42:51) [GET]
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.3ms)
+Rendered store/_cart (19.2ms)
+Completed in 165ms (View: 80, DB: 2) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:42:54) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"5"}
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (10.0ms)
+Rendered store/_cart_item (1.1ms)
+Rendered store/_cart (15.6ms)
+Completed in 64ms (View: 21, DB: 2) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:42:56) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"4"}
+  [4;35;1mProduct Load (0.9ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (9.7ms)
+Rendered store/_cart_item (1.0ms)
+Rendered store/_cart_item (1.7ms)
+Rendered store/_cart (17.5ms)
+Completed in 68ms (View: 22, DB: 2) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-12 16:42:59) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Redirected to http://localhost:3000/store
+Completed in 66ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:42:59) [GET]
+  [4;36;1mProduct Load (7.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.8ms)
+Completed in 134ms (View: 68, DB: 8) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:43:01) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;35;1mProduct Load (0.9ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (9.1ms)
+Rendered store/_cart (11.9ms)
+Completed in 64ms (View: 16, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:43:03) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"5"}
+  [4;36;1mProduct Load (1.2ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (10.8ms)
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (16.6ms)
+Completed in 72ms (View: 21, DB: 2) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:43:05) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"4"}
+  [4;35;1mProduct Load (1.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 4) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (26.9ms)
+Rendered store/_cart_item (2.1ms)
+Rendered store/_cart_item (2.7ms)
+Rendered store/_cart (40.0ms)
+Completed in 139ms (View: 47, DB: 4) | 200 OK [http://localhost/store/add_to_cart/4]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 16:43:11) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `validate_inclusion_of' for #<Class:0xb621544c>):
+  app/models/order.rb:12
+  app/controllers/store_controller.rb:37:in `checkout'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (166.5ms)
+Rendered rescues/_request_and_response (2.8ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 16:43:52) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (34.4ms)
+Rendered store/_cart_item (14.1ms)
+Rendered store/_cart_item (1.4ms)
+Rendered store/_cart (53.6ms)
+Completed in 221ms (View: 92, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 16:44:04) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"MH", "name"=>"MH", "pay_type"=>"check", "email"=>"MH"}}
+
+NameError (undefined local variable or method `find' for #<StoreController:0xb607bf3c>):
+  app/controllers/store_controller.rb:21:in `save_order'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (177.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 16:44:38) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"MH", "name"=>"MH", "pay_type"=>"check", "email"=>"MH"}}
+
+ActiveRecord::AssociationTypeMismatch (LineItem(#-620111748) expected, got BigDecimal(#-606333088)):
+  app/models/order.rb:17:in `add_line_items_from_cart'
+  app/models/order.rb:15:in `each'
+  app/models/order.rb:15:in `add_line_items_from_cart'
+  app/controllers/store_controller.rb:23:in `save_order'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (175.7ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 16:45:30) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"MH", "name"=>"MH", "pay_type"=>"check", "email"=>"MH"}}
+  [4;36;1mOrder Create (2.7ms)[0m   [0;1mINSERT INTO "orders" ("name", "address", "created_at", "updated_at", "pay_type", "email") VALUES('MH', 'MH', '2009-05-12 14:45:31', '2009-05-12 14:45:31', 'check', 'MH')[0m
+  [4;35;1mLineItem Create (0.4ms)[0m   [0mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2009-05-12 14:45:31', 3, 1, 1, 29.95, '2009-05-12 14:45:31')[0m
+  [4;36;1mLineItem Create (0.3ms)[0m   [0;1mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2009-05-12 14:45:31', 5, 1, 1, 27.75, '2009-05-12 14:45:31')[0m
+  [4;35;1mLineItem Create (15.5ms)[0m   [0mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2009-05-12 14:45:31', 4, 1, 1, 28.5, '2009-05-12 14:45:31')[0m
+Redirected to http://localhost:3000/store
+Completed in 497ms (DB: 20) | 302 Found [http://localhost/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 16:45:31) [GET]
+  [4;36;1mProduct Load (2.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.5ms)
+Completed in 102ms (View: 46, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:49:09) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;35;1mProduct Load (0.9ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (12.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 63ms (View: 21, DB: 3) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:52:55) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (9.2ms)
+Rendered store/_cart (12.4ms)
+Completed in 74ms (View: 23, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:52:57) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;35;1mProduct Load (0.9ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (12.5ms)
+Rendered store/_cart (16.3ms)
+Completed in 62ms (View: 21, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:53:00) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"5"}
+  [4;36;1mProduct Load (1.3ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (8.7ms)
+Rendered store/_cart_item (2.0ms)
+Rendered store/_cart (15.2ms)
+Completed in 65ms (View: 21, DB: 3) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 16:53:01) [POST]
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"5"}
+  [4;35;1mProduct Load (1.4ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (11.4ms)
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (16.8ms)
+Completed in 71ms (View: 25, DB: 3) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:04:04) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (13.3ms)
+Rendered store/_cart_item (1.7ms)
+Rendered store/_cart (44.0ms)
+Completed in 145ms (View: 56, DB: 2) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:04:07) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (23.8ms)
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (29.6ms)
+Completed in 231ms (View: 41, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:04:08) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (19.0ms)
+Rendered store/_cart_item (1.3ms)
+Rendered store/_cart (23.8ms)
+Completed in 104ms (View: 35, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:04:16) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (20.3ms)
+Rendered store/_cart_item (1.4ms)
+Rendered store/_cart (26.7ms)
+Completed in 113ms (View: 45, DB: 4) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 17:12:50) [GET]
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.7ms)
+Rendered store/_cart_item (1.3ms)
+Rendered store/_cart (7.7ms)
+Completed in 179ms (View: 81, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-12 17:12:57) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Redirected to http://localhost:3000/store
+Completed in 52ms (DB: 1) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 17:12:58) [GET]
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.2ms)
+Completed in 87ms (View: 43, DB: 10) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-12 17:13:00) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "id"=>"3"}
+  [4;36;1mProduct Load (0.6ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.1ms)
+Rendered store/_cart (19.3ms)
+Completed in 69ms (View: 24, DB: 3) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:02) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (24.4ms)
+Rendered store/_cart (27.9ms)
+Completed in 123ms (View: 41, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:05) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "disabled"=>"true"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (16.1ms)
+Rendered store/_cart (28.1ms)
+Completed in 149ms (View: 49, DB: 27) | 200 OK [http://localhost/store/checkout?disabled=true]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:10) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "disabled"=>"true"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (24.3ms)
+Rendered store/_cart (29.1ms)
+Completed in 234ms (View: 40, DB: 1) | 200 OK [http://localhost/store/checkout?disabled=true]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:12) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "disabled"=>"true"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (14.7ms)
+Rendered store/_cart (25.4ms)
+Completed in 143ms (View: 47, DB: 2) | 200 OK [http://localhost/store/checkout?disabled=true]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:13) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "disabled"=>"true"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (22.1ms)
+Rendered store/_cart (25.6ms)
+Completed in 113ms (View: 45, DB: 1) | 200 OK [http://localhost/store/checkout?disabled=true]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 17:13:52) [GET]
+  [4;35;1mProduct Load (1.7ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (0.9ms)
+Rendered store/_cart (6.4ms)
+Completed in 176ms (View: 91, DB: 3) | 200 OK [http://localhost/store/]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-12 17:13:56) [POST]
+  Parameters: {"authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (23.3ms)
+Rendered store/_cart (27.5ms)
+Completed in 162ms (View: 53, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 17:14:14) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"mh", "name"=>"mh", "pay_type"=>"", "email"=>"m"}}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (4.6ms)
+Rendered store/_cart (8.7ms)
+Completed in 146ms (View: 20, DB: 1) | 200 OK [http://localhost/store/save_order]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-05-12 17:14:25) [POST]
+  Parameters: {"commit"=>"Place Order", "authenticity_token"=>"RbK8aCCfoHeGeFk5znyLg0K/JPnK91LAr3ATLBRFSzA=", "order"=>{"address"=>"mh", "name"=>"mh", "pay_type"=>"cc", "email"=>"m"}}
+  [4;36;1mOrder Create (0.6ms)[0m   [0;1mINSERT INTO "orders" ("name", "address", "created_at", "updated_at", "pay_type", "email") VALUES('mh', 'mh', '2009-05-12 15:14:25', '2009-05-12 15:14:25', 'cc', 'm')[0m
+  [4;35;1mLineItem Create (0.3ms)[0m   [0mINSERT INTO "line_items" ("created_at", "product_id", "quantity", "order_id", "total_price", "updated_at") VALUES('2009-05-12 15:14:25', 3, 1, 2, 29.95, '2009-05-12 15:14:25')[0m
+Redirected to http://localhost:3000/store
+Completed in 227ms (DB: 3) | 302 Found [http://localhost/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-12 17:14:25) [GET]
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.6ms)
+Completed in 100ms (View: 54, DB: 3) | 200 OK [http://localhost/store]
