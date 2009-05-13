@@ -1,5 +1,5 @@
 class StoreController < ApplicationController
-before_filer :find_cart, :except => :empty_cart
+before_filter :find_cart, :except => :empty_cart
 
   def index    
     @products = Product.find_products_for_sale
@@ -23,7 +23,7 @@ before_filer :find_cart, :except => :empty_cart
     @order.add_line_items_from_cart(@cart)
     if @order.save
       session[:cart] = nil
-      redirect_to_index("Thank you for your order!")
+      redirect_to_index(I18n.t('flash.thanks'))
     else
       render :action => 'checkout'
     end

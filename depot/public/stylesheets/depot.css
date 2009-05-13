@@ -262,3 +262,8 @@ h1 {
   margin: 0.5em 0;
 }
 /* END:form */
+
+.locale {
+    float: right;
+    padding-top: 0.2em
+}

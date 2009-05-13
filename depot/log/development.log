@@ -8447,3 +8447,761 @@ Processing OrdersController#index (for 127.0.0.1 at 2009-05-13 14:38:08) [GET]
 Rendering template within layouts/store
 Rendering orders/index
 Completed in 100ms (View: 28, DB: 3) | 200 OK [http://localhost/orders]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-05-13 16:20:56) [GET]
+
+NoMethodError (undefined method `before_filer' for StoreController:Class):
+  app/controllers/store_controller.rb:2
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (139.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 16:21:55) [GET]
+  [4;36;1mProduct Load (1.9ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+
+ActionView::TemplateError (uninitialized constant ActionView::Base::CompiledTemplates::LANGUAGES) on line #13 of app/views/layouts/store.html.erb:
+10:     <div id="banner">
+11:       <!-- START:i18n -->
+12:       <% form_tag '', :method => 'GET', :class => 'locale' do %>
+13:         <%= select_tag 'locale', options_for_select(LANGUAGES, I18n.locale),
+14:           :onchange => 'this.form.submit()' %>
+15:         <%= submit_tag 'submit' %>
+16:         <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+
+    app/views/layouts/store.html.erb:13
+    app/views/layouts/store.html.erb:12
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (231.9ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 16:23:17) [GET]
+  [4;36;1mProduct Load (2.2ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (18.8ms)
+Completed in 178ms (View: 108, DB: 6) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 16:40:05) [GET]
+  [4;35;1mProduct Load (2.2ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.2ms)
+Completed in 155ms (View: 74, DB: 4) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:04:37) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (1.3ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.9ms)
+Completed in 91ms (View: 28, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:04:46) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (1.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.6ms)
+Completed in 67ms (View: 39, DB: 2) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:07:42) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+
+NoMethodError (undefined method `default_localeS' for I18n:Module):
+  app/controllers/application_controller.rb:38:in `set_locale'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (92.4ms)
+Rendered rescues/_request_and_response (3.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:07:58) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;36;1mProduct Load (6.6ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.6ms)
+Completed in 97ms (View: 31, DB: 8) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:05) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (10.2ms)
+Completed in 89ms (View: 46, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:36) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;36;1mProduct Load (0.8ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.8ms)
+Completed in 91ms (View: 29, DB: 2) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:38) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.5ms)
+Completed in 101ms (View: 40, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:44) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;36;1mProduct Load (1.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.3ms)
+Completed in 102ms (View: 29, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:49) [GET]
+  [4;35;1mProduct Load (21.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.2ms)
+Completed in 154ms (View: 65, DB: 22) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:08:58) [GET]
+  Parameters: {"locale"=>"es"}
+No such file or directory - /home/marco/RailsProjects/boek/depot/config/locales/es.yml
+  [4;36;1mProduct Load (2.4ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.8ms)
+Completed in 118ms (View: 48, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:21:30) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (1.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (4.1ms)
+Completed in 135ms (View: 42, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:21:42) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (4.2ms)
+Completed in 102ms (View: 61, DB: 2) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:21:46) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (0.1ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (0.9ms)
+Completed in 99ms (View: 57, DB: 1) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:21:51) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;36;1mProduct Load (0.9ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.1ms)
+Completed in 168ms (View: 100, DB: 2) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:21:54) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (1.2ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.5ms)
+Completed in 97ms (View: 37, DB: 2) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:25:42) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+ERROR: compiling _run_erb_app47views47store47index46html46erb RAISED compile error
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unknown regexp option - h
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unmatched ): /h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: syntax error, unexpected tINTEGER, expecting ')'
+...); @output_buffer.concat "</h3>\n    "
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n    <div class=\"price-line\"...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected kCLASS, expecting kDO or '{' or '('
+...uffer.concat "\n    <div class=\"price-line\">\n      <span ...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:20: syntax error, unexpected kEND, expecting ')'
+;  end ; @output_buffer
+      ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47store47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( I18n.t 'main.title'</h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</h3>\n    "
+; @output_buffer.concat(( product.description ).to_s); @output_buffer.concat "\n    <div class=\"price-line\">\n      <span class=\"price\">"
+
+; @output_buffer.concat(( number_to_currency(product.price) ).to_s); @output_buffer.concat "</span>\n\n      "
+
+;  form_remote_tag :url => {:action  => :add_to_cart, :id => product } do ; @output_buffer.concat "\n        "
+; @output_buffer.concat(( submit_tag I18n.t('main.button.add') ).to_s); @output_buffer.concat "\n      "
+;  end ; @output_buffer.concat "\n    </div>\n  </div>\n"
+
+
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/abstract_store.rb:122:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unknown regexp option - h
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unmatched ): /h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: syntax error, unexpected tINTEGER, expecting ')'
+...); @output_buffer.concat "</h3>\n    "
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n    <div class=\"price-line\"...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected kCLASS, expecting kDO or '{' or '('
+...uffer.concat "\n    <div class=\"price-line\">\n      <span ...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:20: syntax error, unexpected kEND, expecting ')'
+;  end ; @output_buffer
+      ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23: syntax error, unexpected kEND, expecting ')') on line #10 of app/views/store/index.html.erb:
+7:     <% end %>
+8: 
+9: 
+10:     <h3><%=h product.title %></h3>
+11:     <%= product.description %>
+12:     <div class="price-line">
+13:       <span class="price"><%= number_to_currency(product.price) %></span>
+
+    app/views/store/index.html.erb:23:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (117.5ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:26:01) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+ERROR: compiling _run_erb_app47views47store47index46html46erb RAISED compile error
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unknown regexp option - h
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unmatched ): /h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: syntax error, unexpected tINTEGER, expecting ')'
+...); @output_buffer.concat "</h3>\n    "
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n    <div class=\"price-line\"...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected kCLASS, expecting kDO or '{' or '('
+...uffer.concat "\n    <div class=\"price-line\">\n      <span ...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:20: syntax error, unexpected kEND, expecting ')'
+;  end ; @output_buffer
+      ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23: syntax error, unexpected kEND, expecting ')'
+Function body:           def _run_erb_app47views47store47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>"; @output_buffer.concat(( I18n.t 'main.title'</h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</h3>\n    "
+; @output_buffer.concat(( product.description ).to_s); @output_buffer.concat "\n    <div class=\"price-line\">\n      <span class=\"price\">"
+
+; @output_buffer.concat(( number_to_currency(product.price) ).to_s); @output_buffer.concat "</span>\n\n      "
+
+;  form_remote_tag :url => {:action  => :add_to_cart, :id => product } do ; @output_buffer.concat "\n        "
+; @output_buffer.concat(( submit_tag I18n.t('main.button.add') ).to_s); @output_buffer.concat "\n      "
+;  end ; @output_buffer.concat "\n    </div>\n  </div>\n"
+
+
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23:in `compile!'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/abstract_store.rb:122:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/var/lib/gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:46:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unknown regexp option - h
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: unmatched ): /h1>
+
+<% for product in @products ).to_s)
+@output_buffer.concat "  <div class=\"entry\">\n    "
+;  form_remote_tag :url => { :action => :add_to_cart, :id => product } do ; @output_buffer.concat "\n      "
+; @output_buffer.concat(( image_submit_tag(product.image_url, :alt => product.title, :title => "Add to cart", :class => "product_picture") ).to_s)
+@output_buffer.concat "    ";  end ; @output_buffer.concat "\n\n\n    <h3>"
+
+
+; @output_buffer.concat((h product.title ).to_s); @output_buffer.concat "</
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:10: syntax error, unexpected tINTEGER, expecting ')'
+...); @output_buffer.concat "</h3>\n    "
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected $undefined, expecting ')'
+...o_s); @output_buffer.concat "\n    <div class=\"price-line\"...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:11: syntax error, unexpected kCLASS, expecting kDO or '{' or '('
+...uffer.concat "\n    <div class=\"price-line\">\n      <span ...
+                              ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:20: syntax error, unexpected kEND, expecting ')'
+;  end ; @output_buffer
+      ^
+/home/marco/RailsProjects/boek/depot/app/views/store/index.html.erb:23: syntax error, unexpected kEND, expecting ')') on line #10 of app/views/store/index.html.erb:
+7:     <% end %>
+8: 
+9: 
+10:     <h3><%=h product.title %></h3>
+11:     <%= product.description %>
+12:     <div class="price-line">
+13:       <span class="price"><%= number_to_currency(product.price) %></span>
+
+    app/views/store/index.html.erb:23:in `compile!'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (101.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:26:53) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (1.6ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.8ms)
+Completed in 89ms (View: 39, DB: 6) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:27:02) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (3.2ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.3ms)
+Completed in 81ms (View: 45, DB: 4) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:27:06) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (0.1ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (14.3ms)
+Completed in 136ms (View: 79, DB: 1) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:27:11) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (2.6ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (3.5ms)
+Completed in 95ms (View: 38, DB: 4) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:27:21) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (2.3ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (1.2ms)
+Completed in 113ms (View: 71, DB: 4) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:28:53) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (2.4ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (5.6ms)
+Completed in 226ms (View: 86, DB: 4) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:28:57) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (1.8ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (7.2ms)
+Completed in 133ms (View: 79, DB: 3) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:30:52) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (1.5ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (5.6ms)
+Completed in 131ms (View: 51, DB: 3) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-13 17:30:55) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI=", "id"=>"3"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (6.2ms)
+Rendered store/_cart (106.6ms)
+Completed in 148ms (View: 117, DB: 3) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:30:58) [GET]
+  Parameters: {"locale"=>"es"}
+  [4;35;1mProduct Load (1.9ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (2.9ms)
+Rendered store/_cart (7.8ms)
+Completed in 128ms (View: 49, DB: 3) | 200 OK [http://localhost/store?locale=es]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-13 17:31:03) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI=", "id"=>"3"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (4.1ms)
+Rendered store/_cart (16.6ms)
+Completed in 59ms (View: 21, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-13 17:31:05) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI=", "id"=>"3"}
+  [4;35;1mProduct Load (1.3ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (7.2ms)
+Rendered store/_cart (38.9ms)
+Completed in 191ms (View: 45, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-13 17:31:06) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI=", "id"=>"5"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 5) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.7ms)
+Rendered store/_cart_item (0.9ms)
+Rendered store/_cart (32.3ms)
+Completed in 109ms (View: 39, DB: 2) | 200 OK [http://localhost/store/add_to_cart/5]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:31:10) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;35;1mProduct Load (1.7ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.6ms)
+Rendered store/_cart_item (1.6ms)
+Rendered store/_cart (30.3ms)
+Completed in 164ms (View: 93, DB: 3) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 17:34:43) [GET]
+  Parameters: {"locale"=>"en"}
+  [4;36;1mProduct Load (1.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart_item (0.1ms)
+Rendered store/_cart (11.8ms)
+Completed in 149ms (View: 46, DB: 4) | 200 OK [http://localhost/store?locale=en]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 17:34:45) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI="}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (8.7ms)
+Rendered store/_cart_item (2.1ms)
+Rendered store/_cart (19.7ms)
+Completed in 149ms (View: 73, DB: 1) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 17:34:50) [GET]
+  Parameters: {"locale"=>"es"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (6.8ms)
+Rendered store/_cart_item (2.7ms)
+Rendered store/_cart (36.6ms)
+Completed in 131ms (View: 75, DB: 1) | 200 OK [http://localhost/store/checkout?locale=es]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 17:34:57) [GET]
+  Parameters: {"locale"=>"en"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (1.6ms)
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (27.8ms)
+Completed in 152ms (View: 66, DB: 2) | 200 OK [http://localhost/store/checkout?locale=en]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 17:35:06) [GET]
+  Parameters: {"locale"=>"es"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (11.3ms)
+Rendered store/_cart_item (7.8ms)
+Rendered store/_cart (28.0ms)
+Completed in 240ms (View: 62, DB: 1) | 200 OK [http://localhost/store/checkout?locale=es]
