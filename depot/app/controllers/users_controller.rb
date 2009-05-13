@@ -75,6 +75,12 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
+    begin
+      flash[:notice] = "User #{@user.name} deleted"
+      @user.destroy
+    rescue Excpetion => e
+      flash[:notice] = e.message
+    end
     @user.destroy
 
     respond_to do |format|
