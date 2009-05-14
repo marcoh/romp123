@@ -9205,3 +9205,206 @@ Rendered store/_cart_item (11.3ms)
 Rendered store/_cart_item (7.8ms)
 Rendered store/_cart (28.0ms)
 Completed in 240ms (View: 62, DB: 1) | 200 OK [http://localhost/store/checkout?locale=es]
+  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (34.2ms)[0m   [0;1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "order_id" integer NOT NULL, "quantity" integer NOT NULL, "total_price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.6ms)[0m   [0;1mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (19.0ms)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "price" decimal(8,2) DEFAULT 0.0) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.7ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (24.6ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (17.1ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (10.5ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (18.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (13.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (8.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090512152011')[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090512123419')[0m
+  [4;36;1mSQL (48.1ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090512123526')[0m
+  [4;35;1mSQL (11.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507194107')[0m
+  [4;36;1mSQL (12.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090504134753')[0m
+  [4;35;1mSQL (11.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090504130520')[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090507084702')[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (309.9ms)[0m   [0;1mCREATE TABLE "line_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer NOT NULL, "order_id" integer NOT NULL, "quantity" integer NOT NULL, "total_price" decimal(8,2) NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (30.7ms)[0m   [0;1mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "address" text, "email" varchar(255), "pay_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (17.2ms)[0m   [0;1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "price" decimal(8,2) DEFAULT 0.0) [0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (15.5ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (35.3ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (14.8ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (11.7ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "hashed_password" varchar(255), "salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (14.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (16.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (9.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090512152011')[0m
+  [4;35;1mSQL (15.1ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090512123419')[0m
+  [4;36;1mSQL (11.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090512123526')[0m
+  [4;35;1mSQL (11.9ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090507194107')[0m
+  [4;36;1mSQL (11.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090504134753')[0m
+  [4;35;1mSQL (8.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090504130520')[0m
+  [4;36;1mSQL (7.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090507084702')[0m
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:39:34) [GET]
+  Parameters: {"locale"=>"en"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (6.8ms)
+Rendered store/_cart_item (1.4ms)
+Rendered store/_cart (12.6ms)
+Completed in 99ms (View: 36, DB: 2) | 200 OK [http://localhost/store/checkout?locale=en]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:39:37) [GET]
+  Parameters: {"locale"=>"es"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (14.1ms)
+Rendered store/_cart_item (0.7ms)
+Rendered store/_cart (17.0ms)
+Completed in 150ms (View: 77, DB: 1) | 200 OK [http://localhost/store/checkout?locale=es]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:39:43) [GET]
+  Parameters: {"locale"=>"en"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (2.7ms)
+Rendered store/_cart_item (1.8ms)
+Rendered store/_cart (12.0ms)
+Completed in 107ms (View: 34, DB: 0) | 200 OK [http://localhost/store/checkout?locale=en]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:39:48) [GET]
+  Parameters: {"locale"=>"es"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (12.8ms)
+Rendered store/_cart_item (0.5ms)
+Rendered store/_cart (22.2ms)
+Completed in 141ms (View: 58, DB: 1) | 200 OK [http://localhost/store/checkout?locale=es]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:39:58) [GET]
+  Parameters: {"locale"=>"en"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (5.9ms)
+Rendered store/_cart_item (1.5ms)
+Rendered store/_cart (10.3ms)
+Completed in 127ms (View: 49, DB: 1) | 200 OK [http://localhost/store/checkout?locale=en]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:40:09) [GET]
+  Parameters: {"locale"=>"es"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (4.4ms)
+Rendered store/_cart_item (2.3ms)
+Rendered store/_cart (15.7ms)
+Completed in 112ms (View: 38, DB: 2) | 200 OK [http://localhost/store/checkout?locale=es]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-05-13 20:40:13) [GET]
+  Parameters: {"locale"=>"en"}
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (7.5ms)
+Rendered store/_cart_item (9.0ms)
+Rendered store/_cart (21.3ms)
+Completed in 246ms (View: 55, DB: 1) | 200 OK [http://localhost/store/checkout?locale=en]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-05-13 20:47:03) [POST]
+  Parameters: {"authenticity_token"=>"/vcUXTJJZbXeZGnRhK58K84geMzVEp6GqdwI5Vx8GEI="}
+Redirected to http://localhost:3000/store
+Completed in 35ms (DB: 2) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 20:47:03) [GET]
+  [4;35;1mProduct Load (1.8ms)[0m   [0mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (7.1ms)
+Completed in 88ms (View: 53, DB: 3) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-05-13 20:49:05) [GET]
+  [4;36;1mProduct Load (16.5ms)[0m   [0;1mSELECT * FROM "products" ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+Rendered store/_cart (2.3ms)
+Completed in 195ms (View: 80, DB: 18) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-05-13 20:49:10) [POST]
+  Parameters: {"authenticity_token"=>"Npq7nL7xcdHydfSMy7bUpuRSHGaaBK8ymZBc7bNzzh8=", "id"=>"3"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (3.8ms)
+Rendered store/_cart (18.4ms)
+Completed in 167ms (View: 138, DB: 2) | 200 OK [http://localhost/store/add_to_cart/3]
